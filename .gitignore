@@ -1,2 +1,4 @@
 Data/
+venv/
+.idea/
 **/.DS_Store
