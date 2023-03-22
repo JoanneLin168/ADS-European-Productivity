@@ -1,0 +1,191 @@
+#Flag	USA	United States	82793
+#Flag	JPN	Japan	74051
+#Flag	CAN	Canada	73968
+#Flag	AUS	Australia	61993
+#Flag	KOR	Korea	59893
+#Flag	FRA	France	59848
+#Flag	DEU	Germany	58525
+#Flag	GBR	United Kingdom	58432
+#Flag	NLD	Netherlands	56769
+#Flag	FIN	Finland	56719
+#Flag	NOR	Norway	56234
+#Flag	SWE	Sweden	56196
+#Flag	ITA	Italy	55228
+#Flag	DNK	Denmark	54925
+#Flag	AUT	Austria	54128
+#Flag	PRT	Portugal	53579
+#Flag	ESP	Spain	53045
+#Flag	BEL	Belgium	52553
+#Flag	IRL	Ireland	51532
+#Flag	CHE	Switzerland	49929
+#Flag	LUX	Luxembourg	48809
+#Flag	GRC	Greece	48329
+#Flag	NZL	New Zealand	45261
+#Flag	HUN	Hungary	42314
+#Flag	ISR	Israel	42276
+#Flag	CHL	Chile	41400
+#Flag	ISL	Iceland	41258
+#Flag	CZE	Czech Republic	41227
+#Flag	MEX	Mexico	40745
+#Flag	POL	Poland	40387
+#Flag	TUR	Turkey	39772
+#Flag	SVK	Slovak Republic	38244
+#Flag	EST	Estonia	37344
+#Flag	SVN	Slovenia	37085
+#Flag	COL	Colombia	35443
+#Flag	LTU	Lithuania	34968
+#Flag	LVA	Latvia	34661
+#Flag	ZAF	South Africa	33899
+#Flag	OECD	OECD - Total	32018
+#Flag	CRI	Costa Rica	23719
+#Flag	RUS	Russia	22815
+#Flag	EA19	Euro area (19 countries)	22578
+#Flag	BRA	Brazil	21604
+#Flag	G-7	G7	20893
+#Flag	IND	India	18624
+#Flag	OECDE	OECD - Europe	16047
+#Flag	CHN	China (People's Republic of)	15859
+#Flag	IDN	Indonesia	15698
+#Flag	EU27_2020	European Union – 27 countries (from 01/02/2020)	13555
+#Flag	ARG	Argentina	8181
+#Flag	ROU	Romania	7301
+#Flag	BGR	Bulgaria	6893
+#Flag	SAU	Saudi Arabia	6697
+#Flag	HRV	Croatia	4719
+#Flag	MLT	Malta	4301
+#Flag	EU28	European Union (28 countries)	4135
+#Flag	CYP	Cyprus	3538
+#Flag	EA17	Euro area (17 countries)	3381
+#Flag	OAVG	OECD - Average	3102
+#Flag	UKR	Ukraine	2825
+#Flag	WLD	World	2599
+#Flag	KAZ	Kazakhstan	2581
+#Flag	EA	Euro area	2554
+#Flag	PHL	Philippines	2539
+#Flag	PER	Peru	2503
+#Flag	VNM	Viet Nam	2381
+#Flag	THA	Thailand	2303
+#Flag	G-20	G20	2242
+#Flag	EU	European Union	2187
+#Flag	MYS	Malaysia	2078
+#Flag	SRB	Serbia	2037
+#Flag	SGP	Singapore	1999
+#Flag	EGY	Egypt	1883
+#Flag	G7M	G7	1879
+#Flag	MKD	North Macedonia	1850
+#Flag	GEO	Georgia	1822
+#Flag	PRY	Paraguay	1703
+#Flag	ALB	Albania	1702
+#Flag	NGA	Nigeria	1661
+#Flag	MDA	Moldova	1642
+#Flag	DAC	DAC Countries	1568
+#Flag	G20	G20	1562
+#Flag	AZE	Azerbaijan	1527
+#Flag	PAK	Pakistan	1514
+#Flag	TWN	Chinese Taipei	1474
+#Flag	IRN	Iran	1456
+#Flag	BLR	Belarus	1452
+#Flag	ARE	United Arab Emirates	1416
+#Flag	OEU	OECD - Europe	1413
+#Flag	NAM	Namibia	1401
+#Flag	MAR	Morocco	1392
+#Flag	ETH	Ethiopia	1372
+#Flag	BIH	Bosnia and Herzegovina	1197
+#Flag	ARM	Armenia	1187
+#Flag	MNE	Montenegro	1162
+#Flag	TUN	Tunisia	1161
+#Flag	URY	Uruguay	1135
+#Flag	HKG	Hong Kong, China	1078
+#Flag	DOM	Dominican Republic	1073
+#Flag	PAN	Panama	1021
+#
+#Flag	ECU	Ecuador	1020
+#Flag	BOL	Bolivia	1016
+#Flag	GTM	Guatemala	1004
+#Flag	TTO	Trinidad and Tobago	1003
+#Flag	SLV	El Salvador	1001
+#Flag	HND	Honduras	987
+#Flag	JAM	Jamaica	987
+#Flag	KEN	Kenya	984
+#Flag	CMR	Cameroon	975
+#Flag	VEN	Venezuela	975
+#Flag	NIC	Nicaragua	965
+#Flag	CIV	Côte d'Ivoire	957
+#Flag	GHA	Ghana	948
+#Flag	MNG	Mongolia	927
+#Flag	SEN	Senegal	926
+#Flag	MOZ	Mozambique	915
+#Flag	NER	Niger	906
+#Flag	ZMB	Zambia	897
+#Flag	COG	Congo	896
+#Flag	TGO	Togo	894
+#Flag	BWA	Botswana	893
+#Flag	EU27	European Union (27 countries)	893
+#Flag	UZB	Uzbekistan	857
+#Flag	COD	Democratic Republic of the Congo	856
+#Flag	LIE	Liechtenstein	855
+#Flag	JOR	Jordan	820
+#Flag	KGZ	Kyrgyzstan	800
+#Flag	MMR	Myanmar	791
+#Flag	KHM	Cambodia	776
+#Flag	LKA	Sri Lanka	771
+#Flag	BRN	Brunei Darussalam	758
+#Flag	LBN	Lebanon	751
+#Flag	DZA	Algeria	746
+#Flag	BGD	Bangladesh	739
+#Flag	KWT	Kuwait	734
+#Flag	CUB	Cuba	728
+#Flag	TJK	Tajikistan	728
+#Flag	TZA	Tanzania	728
+#Flag	LBY	Libya	726
+#Flag	AGO	Angola	725
+#Flag	ZWE	Zimbabwe	722
+#Flag	BRICS	BRICS	720
+#Flag	IRQ	Iraq	716
+#Flag	QAT	Qatar	713
+#Flag	BEN	Benin	711
+#Flag	HTI	Haiti	708
+#Flag	OMN	Oman	707
+#Flag	BHR	Bahrain	703
+#Flag	GAB	Gabon	700
+#Flag	SYR	Syrian Arab Republic	700
+#Flag	YEM	Yemen	680
+#Flag	TKM	Turkmenistan	677
+#Flag	ERI	Eritrea	664
+#Flag	MDG	Madagascar	629
+#Flag	NPL	Nepal	627
+#Flag	PRK	Democratic People's Republic of Korea	625
+#Flag	SDN	Sudan	620
+#Flag	UGA	Uganda	502
+#Flag	MUS	Mauritius	500
+#Flag	SWZ	Eswatini	488
+#Flag	RWA	Rwanda	485
+#Flag	GNQ	Equatorial Guinea	475
+#Flag	LAO	Lao People's Democratic Republic	454
+#Flag	PNG	Papua New Guinea	443
+#Flag	MLI	Mali	437
+#Flag	MWI	Malawi	434
+#Flag	BFA	Burkina Faso	433
+#Flag	FJI	Fiji	381
+#Flag	MRT	Mauritania	381
+#Flag	TCD	Chad	371
+#Flag	BTN	Bhutan	325
+#Flag	DEW	Former Federal Republic of Germany	269
+#Flag	CAF	Central African Republic	243
+#Flag	SLE	Sierra Leone	242
+#Flag	GIN	Guinea	239
+#Flag	BDI	Burundi	237
+#Flag	GMB	Gambia	235
+#Flag	LSO	Lesotho	235
+#Flag	LBR	Liberia	211
+#Flag	AFG	Afghanistan	206
+#Flag	DAE		192
+#Flag	NMEC	Non-OECD Economies	192
+#Flag	SOM	Somalia	175
+#Flag	GNB	Guinea-Bissau	174
+#Flag	TLS	Timor-Leste	144
+#Flag	MAC	Macau, China	133
+#Flag	PSE	Palestinian Authority or West Bank and Gaza Strip	124
+#Flag	OIL		48
+#Flag	EA18	Euro area (18 countries)	25
+#Flag	EA16	Euro area (16 countries)	6
