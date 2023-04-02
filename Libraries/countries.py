@@ -25,6 +25,9 @@ def get_subregion(country):
 def get_subregions():
     return list(subregions.keys())
 
+def get_subregions_data():
+    return subregions
+
 def get_countries_in_subregion(subregion):
     return subregions[subregion]
 
@@ -84,6 +87,9 @@ for country in countries_eu:
         subregion = subregion.split(': ')[1]
     elif country == 'Slovenia':
         subregion = 'Central Europe'
+
+    if country == "Czechia":
+        country = "Czech Republic"
 
     if subregion not in subregions.keys():
         subregions[subregion] = []
