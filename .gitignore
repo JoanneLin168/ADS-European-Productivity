@@ -3,3 +3,4 @@ venv/
 **/.DS_Store
 Datasets/workaround.csv
 Data/*
+Libraries/__pycache__/
