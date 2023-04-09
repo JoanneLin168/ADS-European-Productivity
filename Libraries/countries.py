@@ -143,7 +143,8 @@ def webscrape():
 
     # Save to csv
     print("Saving to csv...")
-    with open('Libraries/countries.csv', 'w', newline='') as csvfile:
+    global csvfile
+    with open(csvfile, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(['Country', 'Alpha-2', 'Alpha-3', 'Subregion'])
         for country in countries.keys():
@@ -152,8 +153,12 @@ def webscrape():
 #################### MAIN ####################
 # Check if countries.csv exists, if it does, build variables from it
 # if not webscrape() and build variables from webscraping
+if __name__ == '__main__':
+    csvfile = 'Libraries/countries.csv'
+else:
+    csvfile = '../Libraries/countries.csv'
 try:
-    with open('Libraries/countries.csv', 'r') as csvfile:
+    with open(csvfile, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         next(reader) # Skip header
         for row in reader:
@@ -170,7 +175,3 @@ try:
 except FileNotFoundError:
     print("countries.csv not found, webscraping...")
     webscrape()
-
-if __name__ == "__main__":
-    print(countries)
-    print(subregions)
