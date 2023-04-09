@@ -1,5 +1,11 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
+
+alpha_2_to_3_map = {}
+alpha_3_to_2_map = {}
+countries = {}
+subregions = {}
 
 #################### FUNCTIONS ####################
 # Alpha-2 and alpha-3
@@ -54,80 +60,116 @@ class Country:
 
 #################### WEBCRAWLING/WEBSCRAPING ####################
 # Europe subregions
-print("Getting Europe subregions...")
-url_list = "https://www.cia.gov/the-world-factbook/field/location/"
-req = requests.get(url_list)
-source = req.text
-soup_list = BeautifulSoup(source, 'html.parser')
+def webscrape():
+    # Use global variables
+    global alpha_2_to_3_map
+    global alpha_3_to_2_map
+    global countries
+    global subregions
 
-url_eu = "https://www.cia.gov/the-world-factbook/countries/european-union/"
-req = requests.get(url_eu)
-source = req.text
-soup_eu = BeautifulSoup(source, 'html.parser')
-
-countries_eu_div = soup_eu.find('div', attrs={
-    'class': 'category_data'
-})
-countries_eu = countries_eu_div.find_all('li')
-countries_eu = sorted([country.text.split(' - ')[0] for country in countries_eu])
-
-subregions = {}
-countries_url = "https://www.cia.gov/the-world-factbook/countries/"
-for country in countries_eu:
-    country_url = countries_url+country.lower()
-    req = requests.get(country_url)
+    # Get data
+    print("Getting Europe subregions...")
+    url_list = "https://www.cia.gov/the-world-factbook/field/location/"
+    req = requests.get(url_list)
     source = req.text
-    soup_country = BeautifulSoup(source, 'html.parser')
-    geography_div = soup_country.find('div', attrs={
-        'id': 'geography'
+    soup_list = BeautifulSoup(source, 'html.parser')
+
+    url_eu = "https://www.cia.gov/the-world-factbook/countries/european-union/"
+    req = requests.get(url_eu)
+    source = req.text
+    soup_eu = BeautifulSoup(source, 'html.parser')
+
+    countries_eu_div = soup_eu.find('div', attrs={
+        'class': 'category_data'
     })
-    location_data = geography_div.find_all('p')[0].text # Find the data from the first <p> element
-    subregion = location_data.split(',')[0]
-    if ':' in subregion: # To avoid problems with France
-        subregion = subregion.split(': ')[1]
-    elif country == 'Slovenia':
-        subregion = 'Central Europe'
+    countries_eu = countries_eu_div.find_all('li')
+    countries_eu = sorted([country.text.split(' - ')[0] for country in countries_eu])
 
-    if country == "Czechia":
-        country = "Czech Republic"
+    subregions = {}
+    countries_url = "https://www.cia.gov/the-world-factbook/countries/"
+    for country in countries_eu:
+        country_url = countries_url+country.lower()
+        req = requests.get(country_url)
+        source = req.text
+        soup_country = BeautifulSoup(source, 'html.parser')
+        geography_div = soup_country.find('div', attrs={
+            'id': 'geography'
+        })
+        location_data = geography_div.find_all('p')[0].text # Find the data from the first <p> element
+        subregion = location_data.split(',')[0]
+        if ':' in subregion: # To avoid problems with France
+            subregion = subregion.split(': ')[1]
+        elif country == 'Slovenia':
+            subregion = 'Central Europe'
 
-    if subregion not in subregions.keys():
-        subregions[subregion] = []
-    subregions[subregion].append(country)
+        if country == "Czechia":
+            country = "Czech Republic"
 
-# ISO codes
-print("Getting ISO data...")
-url = "https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=141329"
-req = requests.get(url)
-source = req.text
-soup = BeautifulSoup(source, 'html.parser')
+        if subregion not in subregions.keys():
+            subregions[subregion] = []
+        subregions[subregion].append(country)
 
-alpha_2_elmts = soup.find_all('td', attrs={
-    'headers': 'un_3'
-})
+    # ISO codes
+    print("Getting ISO data...")
+    url = "https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=141329"
+    req = requests.get(url)
+    source = req.text
+    soup = BeautifulSoup(source, 'html.parser')
 
-alpha_3_elmts = soup.find_all('td', attrs={
-    'headers': 'un_4'
-})
+    alpha_2_elmts = soup.find_all('td', attrs={
+        'headers': 'un_3'
+    })
 
-N = len(alpha_2_elmts)
-alpha_2_to_3_map = {}
-alpha_3_to_2_map = {}
-for i in range(N):
-    alpha_2_to_3_map[alpha_2_elmts[i].text] = alpha_3_elmts[i].text
-    alpha_3_to_2_map[alpha_3_elmts[i].text] = alpha_2_elmts[i].text
+    alpha_3_elmts = soup.find_all('td', attrs={
+        'headers': 'un_4'
+    })
 
-# Countries
-countries_eu = [country.replace('Czechia', 'Czech Republic') for country in countries_eu]
-countries = {}
-for i in range(len(countries_eu)):
-    country = countries_eu[i]
-    alpha2 = alpha_2_elmts[i].text
-    alpha3 = alpha_3_elmts[i].text
-    subregion = get_subregion(country)
-    countries[country] = Country(country, alpha2, alpha3, subregion)
+    N = len(alpha_2_elmts)
+    alpha_2_to_3_map = {}
+    alpha_3_to_2_map = {}
+    for i in range(N):
+        alpha_2_to_3_map[alpha_2_elmts[i].text] = alpha_3_elmts[i].text
+        alpha_3_to_2_map[alpha_3_elmts[i].text] = alpha_2_elmts[i].text
 
-print("Countries data loaded.")
+    # Countries
+    countries_eu = [country.replace('Czechia', 'Czech Republic') for country in countries_eu]
+    countries = {}
+    for i in range(len(countries_eu)):
+        country = countries_eu[i]
+        alpha2 = alpha_2_elmts[i].text
+        alpha3 = alpha_3_elmts[i].text
+        subregion = get_subregion(country)
+        countries[country] = Country(country, alpha2, alpha3, subregion)
+
+    # Save to csv
+    print("Saving to csv...")
+    with open('Libraries/countries.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',')
+        writer.writerow(['Country', 'Alpha-2', 'Alpha-3', 'Subregion'])
+        for country in countries.keys():
+            writer.writerow([country, countries[country].alpha2, countries[country].alpha3, countries[country].subregion])
+
+#################### MAIN ####################
+# Check if countries.csv exists, if it does, build variables from it
+# if not webscrape() and build variables from webscraping
+try:
+    with open('Libraries/countries.csv', 'r') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        next(reader) # Skip header
+        for row in reader:
+            country = row[0]
+            alpha2 = row[1]
+            alpha3 = row[2]
+            subregion = row[3]
+            countries[country] = Country(country, alpha2, alpha3, subregion)
+            alpha_2_to_3_map[alpha2] = alpha3
+            alpha_3_to_2_map[alpha3] = alpha2
+            if subregion not in subregions.keys():
+                subregions[subregion] = []
+            subregions[subregion].append(country)
+except FileNotFoundError:
+    print("countries.csv not found, webscraping...")
+    webscrape()
 
 if __name__ == "__main__":
     print(countries)
