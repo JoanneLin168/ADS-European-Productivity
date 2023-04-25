@@ -69,25 +69,44 @@ def webscrape():
 
     # Get data
     print("Getting Europe subregions...")
-    url_list = "https://www.cia.gov/the-world-factbook/field/location/"
-    req = requests.get(url_list)
-    source = req.text
-    soup_list = BeautifulSoup(source, 'html.parser')
 
-    url_eu = "https://www.cia.gov/the-world-factbook/countries/european-union/"
-    req = requests.get(url_eu)
-    source = req.text
-    soup_eu = BeautifulSoup(source, 'html.parser')
+    europe = [
+        'Austria',
+        'Belgium',
+        'Bulgaria',
+        'Croatia',
+        'Czechia',
+        'Denmark',
+        'Estonia',
+        'Finland',
+        'France',
+        'Germany',
+        'Greece',
+        'Hungary',
+        'Iceland',
+        'Ireland',
+        'Italy',
+        'Latvia',
+        'Lithuania',
+        'Luxembourg',
+        'Netherlands',
+        'Norway',
+        'Poland',
+        'Portugal',
+        'Romania',
+        'Slovakia',
+        'Slovenia',
+        'Spain',
+        'Sweden',
+        'Switzerland',
+        'Turkey-Turkiye',
+        'United-Kingdom'
+    ]
 
-    countries_eu_div = soup_eu.find('div', attrs={
-        'class': 'category_data'
-    })
-    countries_eu = countries_eu_div.find_all('li')
-    countries_eu = sorted([country.text.split(' - ')[0] for country in countries_eu])
-
+    # Get country ata
     subregions = {}
     countries_url = "https://www.cia.gov/the-world-factbook/countries/"
-    for country in countries_eu:
+    for i, country in enumerate(europe):
         country_url = countries_url+country.lower()
         req = requests.get(country_url)
         source = req.text
@@ -105,39 +124,56 @@ def webscrape():
         if country == "Czechia":
             country = "Czech Republic"
 
+        if country == "Turkey-Turkiye":
+            country = "Turkey"
+            subregion = "Southeastern Europe"
+
+        if country == "United-Kingdom":
+            country = "United Kingdom"
+
+        europe[i] = country
+
         if subregion not in subregions.keys():
             subregions[subregion] = []
         subregions[subregion].append(country)
 
     # ISO codes
     print("Getting ISO data...")
-    url = "https://www23.statcan.gc.ca/imdb/p3VD.pl?Function=getVD&TVD=141329"
+    url = "https://www.iban.com/country-codes"
     req = requests.get(url)
     source = req.text
     soup = BeautifulSoup(source, 'html.parser')
 
-    alpha_2_elmts = soup.find_all('td', attrs={
-        'headers': 'un_3'
-    })
+    rows = soup.find_all('tr')
+    rows = rows[1:] # Remove the first row (header)
 
-    alpha_3_elmts = soup.find_all('td', attrs={
-        'headers': 'un_4'
-    })
+    alpha_2_list = []
+    alpha_3_list = []
+    europe_tmp = europe.copy()
 
-    N = len(alpha_2_elmts)
-    alpha_2_to_3_map = {}
-    alpha_3_to_2_map = {}
-    for i in range(N):
-        alpha_2_to_3_map[alpha_2_elmts[i].text] = alpha_3_elmts[i].text
-        alpha_3_to_2_map[alpha_3_elmts[i].text] = alpha_2_elmts[i].text
+    for row in rows:
+        row = row.find_all('td')
+        country = row[0].text
+        alpha2 = row[1].text
+        alpha3 = row[2].text
+
+        if country == "Czechia":
+            country = "Czech Republic"
+        
+        for i in range(len(europe)):
+            if country in europe[i] or europe[i] in country:
+                alpha_2_to_3_map[alpha2] = alpha3
+                alpha_3_to_2_map[alpha3] = alpha2
+                alpha_2_list.append(alpha2)
+                alpha_3_list.append(alpha3)
+                break
 
     # Countries
-    countries_eu = [country.replace('Czechia', 'Czech Republic') for country in countries_eu]
     countries = {}
-    for i in range(len(countries_eu)):
-        country = countries_eu[i]
-        alpha2 = alpha_2_elmts[i].text
-        alpha3 = alpha_3_elmts[i].text
+    for i in range(len(europe)):
+        country = europe[i]
+        alpha2 = alpha_2_list[i]
+        alpha3 = alpha_3_list[i]
         subregion = get_subregion(country)
         countries[country] = Country(country, alpha2, alpha3, subregion)
 
