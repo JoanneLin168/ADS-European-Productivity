@@ -1,6 +1,6 @@
 # European Productivity - Applied Data Science Coursework
 
-**Authors:** Nuno Alberto (gz20955@bristol.ac.uk), Joanne Lin (fn20123@bristol.ac.uk), Jack Bunyan (dh20096@bristol.ac.uk),<br />Harvey Lowden (pa20854@bristol.ac.uk), Alex Elwood (wh20899@bristol.ac.uk), Andreea Catrina (mj20873@bristol.ac.uk)
+**Authors:** Nuno Alberto (gz20955@bristol.ac.uk), Joanne Lin (fn20123@bristol.ac.uk), Jack Bunyan (dh20096@bristol.ac.uk), Harvey Lowden (pa20854@bristol.ac.uk), Alex Elwood (wh20899@bristol.ac.uk), Andreea Catrina (mj20873@bristol.ac.uk)
 
 ## Abstract of the submitted report
 
