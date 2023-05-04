@@ -1,8 +1,8 @@
-# European Productivity - Applied Data Science Coursework
+# European Productivity<br />(Applied Data Science Coursework)
 
-**Authors:** Nuno Alberto (gz20955@bristol.ac.uk), Joanne Lin (fn20123@bristol.ac.uk), Jack Bunyan (dh20096@bristol.ac.uk), Harvey Lowden (pa20854@bristol.ac.uk), Alex Elwood (wh20899@bristol.ac.uk), Andreea Catrina (mj20873@bristol.ac.uk)
+**Authors:** Nuno Alberto (gz20955@bristol.ac.uk), Joanne Lin (fn20123@bristol.ac.uk), Jack Bunyan (dh20096@bristol.ac.uk), Harvey Lowden (pa20854@bristol.ac.uk), Alex Elwood (wh20899@bristol.ac.uk), Andreea Catrina (mj20873@bristol.ac.uk).
 
-## Abstract of the submitted report
+## Abstract of the Submitted Report
 
 "In this report, macroeconomic and macro-social indicators are discussed in detail, with trends in data and relationships between different variables being considered. We particularly focused on labour productivity and economic sentiment levels within the European Union (EU), although other indicators and regions were also included in the analysis performed, in order to enrich it. Additionally, we looked at a variety of statistical and machine-learning methods to study their accuracy and suitability as predictive models for these macro-level variables.
 
